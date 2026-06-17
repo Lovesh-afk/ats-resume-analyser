@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATS Resume Analyser</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- pdf.js — extracts text from uploaded PDF in the browser -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <h1>ATS Resume Analyser</h1>
+    <p class="author">By <strong>Lovesh Yadav</strong> · <a href="mailto:lovesh8125@gmail.com">lovesh8125@gmail.com</a></p>
+  </header>
+
+  <!-- ===== HERO STRIP ===== -->
+  <div class="hero">
+    <p class="hero-title">Beat the bots. Land the interview.</p>
+    <p class="hero-sub">Free · No sign-up · Powered by AI</p>
+  </div>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+
+    <!-- Input Section -->
+    <div class="input-grid">
+
+      <!-- LEFT: PDF Upload -->
+      <div class="input-box">
+        <label>Your Resume <span class="label-hint">(PDF)</span></label>
+
+        <div class="upload-zone" id="uploadZone">
+          <input type="file" id="resumeFile" accept=".pdf" hidden />
+          <div class="upload-icon">📄</div>
+          <p class="upload-main">Drag & drop your PDF here</p>
+          <p class="upload-sub">or <span class="upload-link" onclick="document.getElementById('resumeFile').click()">click to browse</span></p>
+          <p class="upload-status hidden" id="uploadStatus"></p>
+        </div>
+      </div>
+
+      <!-- RIGHT: Job Description -->
+      <div class="input-box">
+        <label for="jd">Job Description</label>
+        <textarea id="jd" placeholder="Paste the job description here..."></textarea>
+      </div>
+
+    </div>
+
+    <!-- Analyse Button -->
+    <div class="center">
+      <button class="analyse-btn" onclick="analyseResume()" id="analyseBtn">Analyse Resume</button>
+    </div>
+
+    <!-- Error Message (hidden by default) -->
+    <p class="error hidden" id="errorMsg"></p>
+
+    <!-- ===== RESULTS SECTION (hidden until analysis runs) ===== -->
+    <div class="results hidden" id="results">
+
+      <!-- Score -->
+      <div class="score-box">
+        <div class="score-circle" id="scoreCircle">
+          <span id="scoreValue">0</span>
+          <small>/ 100</small>
+        </div>
+        <div>
+          <h2 id="scoreLabel"></h2>
+          <p id="scoreDesc"></p>
+        </div>
+      </div>
+
+      <!-- Matched and Missing Keywords -->
+      <div class="keywords-grid">
+        <div class="keyword-card matched">
+          <h3>✓ Matched Keywords</h3>
+          <ul id="matchedList"></ul>
+        </div>
+        <div class="keyword-card missing">
+          <h3>✗ Missing Keywords</h3>
+          <ul id="missingList"></ul>
+        </div>
+      </div>
+
+      <!-- Suggestions -->
+      <div class="card">
+        <h3>💡 Suggestions to Improve</h3>
+        <ul id="suggestionsList" class="suggestions-list"></ul>
+      </div>
+
+      <!-- Summary -->
+      <div class="card">
+        <h3>📋 Overall Summary</h3>
+        <p id="summaryText"></p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <span>Lovesh Yadav · <a href="mailto:lovesh8125@gmail.com">lovesh8125@gmail.com</a></span>
+    <a href="https://digitalheroesco.com" target="_blank" class="dh-btn">Built for Digital Heroes</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

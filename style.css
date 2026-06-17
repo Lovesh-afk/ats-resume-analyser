@@ -1,0 +1,423 @@
+/* ====
+   RESET & BASE STYLES
+   ==== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #F5F3FF;   /* light indigo — ties with the brand colour */
+  color: #222;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+a {
+  color: #4F46E5;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ====
+   HEADER
+   ==== */
+
+header {
+  background: #4F46E5;   /* solid indigo — makes it feel like a real product */
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
+  font-size: 1.3rem;
+  color: white;
+}
+
+.author {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.author a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ====
+   HERO STRIP
+   ==== */
+
+.hero {
+  background: #EEF2FF;   /* very light indigo — sits just below the header */
+  border-bottom: 1px solid #C7D2FE;
+  padding: 1.25rem 2rem;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #3730A3;
+  margin-bottom: 0.2rem;
+}
+
+.hero-sub {
+  font-size: 0.875rem;
+  color: #6366F1;
+}
+
+/* ====
+   MAIN LAYOUT
+   ==== */
+
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+/* ====
+   INPUT SECTION
+   ==== */
+
+.input-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .input-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.input-box label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+}
+
+.label-hint {
+  font-weight: normal;
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.input-box textarea {
+  width: 100%;
+  height: 200px;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: Arial, sans-serif;
+  resize: vertical;
+  background: white;
+}
+
+.input-box textarea:focus {
+  outline: none;
+  border-color: #4F46E5;
+}
+
+/* ====
+   PDF UPLOAD ZONE
+   ==== */
+
+.upload-zone {
+  width: 100%;
+  height: 200px;
+  border: 2px dashed #C7D2FE;   /* indigo-tinted dashes — stands out from the textarea */
+  border-radius: 8px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  cursor: pointer;
+  text-align: center;
+  padding: 1rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.upload-zone:hover,
+.upload-zone.dragover {
+  border-color: #4F46E5;
+  background: #F5F3FF;
+}
+
+.upload-zone.success {
+  border-color: #16A34A;
+  background: #f0fdf4;
+}
+
+.upload-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.upload-main {
+  font-size: 0.95rem;
+  color: #444;
+  font-weight: 500;
+}
+
+.upload-sub {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.upload-link {
+  color: #4F46E5;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.upload-status {
+  font-size: 0.85rem;
+  color: #16A34A;
+  font-weight: 500;
+}
+
+/* ====
+   ANALYSE BUTTON
+   ==== */
+
+.center {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.analyse-btn {
+  background: #4F46E5;
+  color: white;
+  border: none;
+  padding: 0.875rem 2.5rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.analyse-btn:hover {
+  background: #3730A3;
+}
+
+.analyse-btn:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+/* ====
+   ERROR MESSAGE
+   ==== */
+
+.error {
+  color: red;
+  background: #fff0f0;
+  border: 1px solid #fbb;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* ====
+   RESULTS SECTION
+   ==== */
+
+/* Score Box */
+.score-box {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.score-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 5px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.score-circle small {
+  font-size: 0.75rem;
+  font-weight: normal;
+  color: #888;
+}
+
+.score-circle.green { border-color: #16A34A; color: #16A34A; background: #dcfce7; }
+.score-circle.amber { border-color: #D97706; color: #D97706; background: #fffbeb; }
+.score-circle.red   { border-color: #DC2626; color: #DC2626; background: #fef2f2; }
+
+.score-box h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.score-box p {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* Keywords Grid */
+.keywords-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .keywords-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.keyword-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.keyword-card h3 {
+  font-size: 0.95rem;
+  margin-bottom: 0.875rem;
+}
+
+.keyword-card.matched h3 { color: #16A34A; }
+.keyword-card.missing h3 { color: #DC2626; }
+
+.keyword-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.keyword-card ul li {
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.keyword-card.matched ul li { background: #dcfce7; color: #166534; }
+.keyword-card.missing ul li  { background: #fef2f2; color: #991B1B; }
+
+/* Generic card */
+.card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.card h3 {
+  font-size: 0.95rem;
+  margin-bottom: 0.875rem;
+  color: #333;
+}
+
+/* Suggestions list */
+.suggestions-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.suggestions-list li {
+  padding: 0.6rem 0.875rem;
+  background: #EEF2FF;
+  border-left: 3px solid #4F46E5;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.9rem;
+  color: #3730A3;
+}
+
+/* Summary text */
+#summaryText {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* ====
+   FOOTER
+   ==== */
+
+footer {
+  background: white;
+  border-top: 1px solid #ddd;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: #666;
+  margin-top: 3rem;
+}
+
+.dh-btn {
+  background: #4F46E5;
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 999px;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.dh-btn:hover {
+  background: #3730A3;
+  text-decoration: none;
+  color: white;
+}
+
+/* ====
+   UTILITY CLASSES
+   ==== */
+
+.hidden {
+  display: none;
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
